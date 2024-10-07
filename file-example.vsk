@@ -1,0 +1,16 @@
+[app]
+    [src]
+        [main]
+            [java]
+                [dryrun]
+                    [feature]
+                        {*utils.6}
+                        [grand]
+                    [ui]
+                    [utils]
+        [test]
+    [build]
+        [**]
+        {**}
+[commit]
+    {commit.*}

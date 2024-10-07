@@ -1,0 +1,21 @@
+/*
+Commit should have this sctucture:
+
+feat: feature messages
+fix: fix messages
+docs: document messages
+...
+
+should not contain \n nor vm
+
+must have maximum 300 charactes
+*/
+
+l 300 <
+
++ feat:*
++ fix:*
++ docs:*
+
+#this is a comment
+- vm*

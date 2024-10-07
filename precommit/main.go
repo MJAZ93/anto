@@ -31,13 +31,13 @@ func AddPreCommitHook() error {
 
 	// Define the content of the commit-msg hook script
 	hookContent := fmt.Sprintf(`#!/bin/bash
-# commit-msg hook to run vusky validate script
+# commit-msg hook to run anto validate script
 INPUT_FILE=$1
 # Navigate to the .anto directory
 cd %s/.anto
 
-# Explicitly run vusky script with 'validate' as a parameter
-bash -c './vusky validate $INPUT_FILE'
+# Explicitly run anto script with 'validate' as a parameter
+bash -c './anto validate $INPUT_FILE'
 `, gitRoot)
 
 	// Create or overwrite the commit-msg hook file

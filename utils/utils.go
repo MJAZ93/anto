@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"anto/model"
 	"bufio"
 	"fmt"
 	"math"
@@ -9,7 +10,6 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
-	"vusky/model"
 )
 
 func GetProjectFileName() (string, error) {

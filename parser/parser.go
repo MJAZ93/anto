@@ -1,6 +1,7 @@
 package parser
 
 import (
+	"anto/model"
 	"bufio"
 	"errors"
 	"fmt"
@@ -9,7 +10,6 @@ import (
 	"strconv"
 	"strings"
 	"unicode"
-	"vusky/model"
 )
 
 func ParseVSKFile(filename string) (model.FolderRule, error) {

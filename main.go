@@ -1,14 +1,14 @@
 package main
 
 import (
+	"anto/commit"
+	"anto/generator"
+	"anto/parser"
+	"anto/precommit"
+	"anto/utils"
+	"anto/validator"
 	"fmt"
 	"os"
-	"vusky/commit"
-	"vusky/generator"
-	"vusky/parser"
-	"vusky/precommit"
-	"vusky/utils"
-	"vusky/validator"
 )
 
 func main() {

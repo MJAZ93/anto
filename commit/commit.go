@@ -1,6 +1,8 @@
 package commit
 
 import (
+	"anto/model"
+	"anto/utils"
 	"bufio"
 	"errors"
 	"fmt"
@@ -10,8 +12,6 @@ import (
 	"strconv"
 	"strings"
 	"unicode"
-	"vusky/model"
-	"vusky/utils"
 )
 
 func ValidateCommitMessage(message string, commitFile string) error {

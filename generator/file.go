@@ -1,14 +1,14 @@
 package generator
 
 import (
+	"anto/model"
+	"anto/parser"
 	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
 	"regexp"
 	"strings"
-	"vusky/model"
-	"vusky/parser"
 )
 
 func GenerateFolderAndFileStruct(filename string, basePath string) error {

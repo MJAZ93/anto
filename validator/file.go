@@ -1,6 +1,9 @@
 package validator
 
 import (
+	"anto/generator"
+	"anto/model"
+	"anto/utils"
 	"errors"
 	"fmt"
 	"os"
@@ -8,9 +11,6 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
-	"vusky/generator"
-	"vusky/model"
-	"vusky/utils"
 )
 
 func ValidateStructure(folder model.FolderRule, fileRoot string) error {

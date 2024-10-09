@@ -4,7 +4,7 @@
 OS="$(uname)"
 ZIP_URL="https://raw.githubusercontent.com/MJAZ93/anto/main/build/mac.zip"
 ZIP_FILE="mac.zip"
-EXTRACTED_FOLDER="."
+EXTRACTED_FOLDER="temp_extract"
 
 # Function to exit script on error
 exit_on_error() {
@@ -27,21 +27,22 @@ if [[ ! -f "$ZIP_FILE" || $(file --mime-type -b "$ZIP_FILE") != "application/zip
     exit_on_error "Downloaded file is not a valid zip archive"
 fi
 
-# Extract the zip directly to the current directory
+# Extract the zip to a temporary folder
 echo "Extracting zip..."
+mkdir -p "$EXTRACTED_FOLDER"
 unzip -o "$ZIP_FILE" -d "$EXTRACTED_FOLDER" || exit_on_error "Unzip failed"
 
-# Navigate to the extracted folder and run commands
-cd "$EXTRACTED_FOLDER" || exit_on_error "Failed to enter directory"
+# Move the contents to the current folder
+echo "Moving files to the root folder..."
+mv "$EXTRACTED_FOLDER"/* . || exit_on_error "Failed to move files"
 
 # Example command execution
 echo "Running installation commands..."
 chmod +x install.sh || exit_on_error "Failed to make install.sh executable"
 ./install.sh || exit_on_error "Failed to run install.sh"
 
-# Go back and clean up the zip file
-cd ..
+# Clean up
 echo "Cleaning up..."
-rm -rf "$ZIP_FILE"
+rm -rf "$ZIP_FILE" "$EXTRACTED_FOLDER"
 
 echo "Installation complete!"

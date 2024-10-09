@@ -1,14 +1,22 @@
 /*
-Commit should have this sctucture:
+Commit should follow the Conventional Commits structure:
 
-feat: feature messages
-fix: fix messages
-docs: document messages
+<type>[optional scope]: <description>
+
+Types allowed:
+- feat: A new feature
+- fix: A bug fix
+- docs: Documentation only changes
+- style: Changes that do not affect the meaning of the code (white-space, formatting, etc)
+- refactor: A code change that neither fixes a bug nor adds a feature
+- perf: A code change that improves performance
+- test: Adding missing or correcting existing tests
+- chore: Changes to the build process or auxiliary tools and libraries
 ...
 
-should not contain \n nor vm
+Commit message should not contain the word "commit"
 
-must have maximum 300 charactes
+Must have a maximum of 300 characters.
 */
 
 l 300 <
@@ -16,6 +24,11 @@ l 300 <
 + feat:*
 + fix:*
 + docs:*
++ style:*
++ refactor:*
++ perf:*
++ test:*
++ chore:*
 
-#this is a comment
-- vm*
+# Commits must never contain the word "commit"
+- commit*

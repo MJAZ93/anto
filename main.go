@@ -68,7 +68,11 @@ func initProject() error {
 }
 
 func createStructure() error {
-	return generator.GenerateFolderAndFileStruct("structure.vsk", "../.anto")
+	rootFolder, err := utils.GetGitRootFolderName()
+	if err != nil {
+		return err
+	}
+	return generator.GenerateFolderAndFileStruct("structure.vsk", "../.anto/"+rootFolder)
 }
 
 func createValidationFile() error {

@@ -2,7 +2,7 @@
 
 # Determine OS type
 OS="$(uname)"
-ZIP_URL="https://github.com/MJAZ93/anto/build/.anto.zip"
+ZIP_URL="https://github.com/MJAZ93/anto/main/build/.anto.zip"
 ZIP_FILE="mac.zip"
 EXTRACTED_FOLDER="."
 

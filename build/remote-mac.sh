@@ -14,13 +14,7 @@ exit_on_error() {
 
 # Download the GitHub zip
 echo "Downloading repository zip..."
-if [[ "$OS" == "Darwin" || "$OS" == "Linux" ]]; then
-    curl -L -o "$ZIP_FILE" "$ZIP_URL" || exit_on_error "Download failed"
-elif [[ "$OS" == "MINGW64_NT"* || "$OS" == "MSYS_NT"* ]]; then
-    powershell -Command "Invoke-WebRequest -Uri '$ZIP_URL' -OutFile '$ZIP_FILE'" || exit_on_error "Download failed"
-else
-    exit_on_error "Unsupported OS"
-fi
+curl -L -o "$ZIP_FILE" "$ZIP_URL" || exit_on_error "Download failed"
 
 # Check if the zip file is valid
 if [[ ! -f "$ZIP_FILE" || $(file --mime-type -b "$ZIP_FILE") != "application/zip" ]]; then

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Readme.md",
+                "file": "readme-2.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Readme.md",
+                "file": "readme-2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Readme.md",
+                "file": "readme-2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Readme.md"
+                "file": "readme-2.md"
               }
             }
           }
@@ -148,16 +148,17 @@
   },
   "active": "a8afee97e730ad3b",
   "lastOpenFiles": [
+    "Readme.md",
+    "readme-2.md",
+    "build/windows/install.ps1",
+    "build/windows/install.sh",
+    "build/linux/install.sh",
+    "build/linux/anto",
+    "build/remote-windows.ps1",
+    "build/remote-mac.sh",
+    "build/remote-linux.sh",
+    "build/remote-windows.sh",
     "build/mac.zip",
-    "build/remote.sh",
-    "build/linux/anto-linux",
-    "build/mac/install.sh",
-    "build/install.sh",
-    "build/install.sh.go",
-    "build/mac/anto",
-    "build/mac/anto-mac",
-    "build/anto.exe",
-    "build/anto-mac",
-    "build/anto-linux"
+    "build/remote.sh"
   ]
 }

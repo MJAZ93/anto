@@ -4,7 +4,7 @@
 OS="$(uname)"
 ZIP_URL="https://raw.githubusercontent.com/MJAZ93/anto/main/build/mac.zip"
 ZIP_FILE="mac.zip"
-EXTRACTED_FOLDER="temp_extract"
+EXTRACTED_FOLDER="mac"
 
 # Function to exit script on error
 exit_on_error() {

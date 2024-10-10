@@ -1,195 +1,195 @@
-# Anto
-Git project organization and quality made simple
 
-![Project Logo](path/to/logo.png)
+# Anto
+Simplifying Git Project Organization and Code Quality
+
+![Project Logo](build/logo.png)
 
 ## Overview
 
-This project aims to reduce the headache of code review, project integration and code quality. 
+Anto is designed to ease the burden of code reviews, project integration, and maintaining code quality.
 
-We believe code review must focus on the functionality, not on the commit messages stability, project structure and files simple rules. 
+We believe that code reviews should focus on functionality, rather than commit message formats, project structure, or simple file rules.
 
-It provides a easy way to validate commit messages, project structure (files and folders) and file content using [VSK/MSK](#vskmskfiles) files + [git hooks](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Hooks).
+Anto provides an easy way to validate commit messages, project structure (files and folders), and file content using [VSK/MSK](./vsk_msk_structure.md) files, combined with [Git hooks](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Hooks).
 
-Believe, it's a game changer! :-)
+It's a game changer! :-)
 
 [screenshot-gif]
 
 ## Features
 
-### Commit validation (.anto/commit.msk)
-The validation commit works by defining rules (regex and max lines), you only need to configure these rules in the *.anto/commit.msk* file:
+### Commit Validation (`.anto/commit.msk`)
+Commit validation works by defining rules (regex and max lines) in the `.anto/commit.msk` file:
+
 ```
-#Desciption of the commit, this will show when a the validation fails
 /*
-Commit should follow the Conventional Commits structure:
+Commits should follow the Conventional Commits structure:
 
 [optional scope]: <description>
 
-Types allowed:
+Allowed types:
 - feat: A new feature
 - fix: A bug fix
 
-Commit message should not contain the word commit.
-
-Must have a maximum of 300 characters.
+Commit messages should not contain the word 'commit' and must be a maximum of 300 characters.
 */
 
-#maximum number of words
 l 300 <
 
-# Regex, at least one must match
 + feat:*
 + fix:*
 
-# Regex, no one must match
 - commit*
 ```
-More about the .msk files, see [VSK/MSK](#vskmskfiles) section.
+For more details about `.msk` files, see the [VSK/MSK](#vskmskfiles) section.
 
-### Project structure validation (.anto/validation.vsk)
-The project structure validation works by defining files and folder rules, you only need to configure these rules in the *.anto/structure.vsk* file:
+### Project Structure Validation (`.anto/validation.vsk`)
+The project structure validation is defined through rules for files and folders in the `.anto/structure.vsk` file:
 
-```
-# a folder defined between [], inside the [] you can put a folder name or a regex that matches files in one directory
+```plaintext
 [app]
-    #a tab separates a childen from a father
     [src]
         [main]
             [java]
                 [anto]
                     [feature]
-                        # a file defined between {}, inside the {} you can put a file name or a regex that matches files in one directory
-                        {*utils.6}
+                        {*utils.6} # Matches files that end with 'utils.6'
                         [grand]
-                    [ui]
-                    [utils]
+                    [ui] # Matches 'ui' directory
+                    [utils] # Matches 'utils' directory
         [test]
             [feature]
-                    {*utils.6}
-                    [grand]
-                    [ui]
-                    [utils]
+                {*utils.6}
+                [grand]
+                [ui]
+                [utils]
     [build]
-        # When you want a file to ignore all folders and files in one file (for example node_modules and build) you set **
-        [**]
+        [**] # Matches all files and folders recursively (useful for ignoring entire directories)
 [commit]
-    {commit.*}
+    {commit.*} # Matches files like 'commit.log', 'commit.txt', etc.
 ```
 
-Anto will generate *validation.vsk* file for your project using this command:
+You can generate the `validation.vsk` file for your project with this command:
 
 ```bash
 .anto create-validation
 ```
 
-### File content validation (.anto/{projectName/*/*.vsk})
-The file structure validation works by defining file rule for each file in your project that you want to validate, 
-to achieve this, you will have to create folders and files (adding the .msk extension) that match your project structure inside .anto directory.
-Hopefully we created a script that will create your project folder and file structure inside .anto, and you will only need to create the rules using this command:
+### File Content Validation (`.anto/{projectName/*/*.vsk}`)
+File content validation is based on rules defined for specific files within your project. Create directories and files (with the `.msk` extension) that mirror your project structure inside the `.anto` folder.
+
+To automate this, use the following command to create your project folder and file structure:
 
 ```bash
 .anto create-structure
 ```
 
-Example of an .msk of a *Activity.kt:
+Example of an `.msk` file for `MainActivity.kt`:
 
-```   
-# Add the message with the rules, this message will be displayed when a file does not meet the rules:
+```plaintext
 /*
-The MainActivity.kt should only contain navigation code, should not contain any @Composable
-...
-must have maximum 300 lines to ensure we dont have big classes
+The MainActivity.kt file should only contain navigation code and must not include any @Composable annotations.
+
+The file should be a maximum of 300 lines to prevent overly large classes.
 */
 
-# Number of classes
-l 300 <
+l 300 < # must have 300 lines max
 
-# Add the regexes that the file content must meet with. (+ regex). All must compile.
-# Ensure the name is Activity
-+ *Activity
++ *Activity # the class name must contain Activity
 
-# Add the regexes that the file content must meet with. (- regex). All must not compile.
-- @Composable*
+- @Composable* # the activity shouldnot contain any composable
 ```
 
 ## Installation
 
 ### Prerequisites
 
-Before you begin, ensure you have met the following requirements:
+Before getting started, ensure you have:
 
-- You have git installed in your project [git].
-- You have removed all your temp folders and files (eg. node_modules, build, etc).
-- You have [other necessary configuration or tool].
+- Git installed [git].
+- Removed temporary folders and files (e.g., node_modules, build).
+- [Other necessary configurations or tools].
 
-### Fast Instalation
+### Fast Installation
 
+In the root of your .git project run the following command:
 #### Mac
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MJAZ93/anto/main/build/remote-mac.sh)" 
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MJAZ93/anto/main/build/remote-mac.sh)"
 ```
+
 #### Linux
 
-```bash 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MJAZ93/anto/main/build/remote-linux.sh)" 
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MJAZ93/anto/main/build/remote-linux.sh)"
 ```
 
 #### Windows
 
-```bash 
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MJAZ93/anto/main/build/remote-windows.ps1" -OutFile "$env:TEMP\remote-windows.ps1"; & "$env:TEMP\remote-windows.ps1" 
+```bash
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MJAZ93/anto/main/build/remote-windows.ps1" -OutFile "$env:TEMP
+emote-windows.ps1"; & "$env:TEMP
+emote-windows.ps1"
 ```
 
 ### Step-by-Step Installation
 
-1. *Download the zip:*
-   https://raw.githubusercontent.com/MJAZ93/anto/main/build/mac.zip
-2. *Extract and run the install.sh* Or:
-3. *Copy the .anto to the root of your git project*
-4. *Open the .anto and run the following commands:*
-5. *Run the following commands:*
+1. Download the zip: https://raw.githubusercontent.com/MJAZ93/anto/main/build/mac.zip
+2. Extract and run `install.sh`:
+
+```bash
+   ./install.sh
+```
+
+#### Or
+
+3. Copy the `.anto` folder to the root of your Git project.
+4. Open the `.anto` folder and run the following commands:
+5. Initialize Anto with:
    ```bash
-   .anto init
+   ./anto init
    ```
-   *Or*
-   Create the validation file (structure.vsk)
+   Or create the validation file (`structure.vsk`):
    ```bash
-   .anto create-validation
+   ./anto create-validation
    ```
-   
-   Create the files to validate all the project files (*.msk)
+   Create the `.msk` files for validating project files:
    ```bash
-   .anto create-strucure
+   ./anto create-structure
    ```
-   
-   Add git commit-msg hook, the validation rules live in commit.msk
+   Add the Git `commit-msg` hook (validation rules live in `commit.msk`):
    ```bash
-   .anto add-precommit
+   ./anto add-precommit
    ```
 
-### How it works
+### Testing
+Just make a commit and **anto** will ensure to make the all validations.
 
-#### Folder structure validation
-#### File content validation
-#### Commit validation
+## How It Works
 
+- **Folder Structure Validation**: Ensures the folder structure follows predefined rules.
+- **File Content Validation**: Validates specific content inside project files.
+- **Commit Validation**: Ensures commit messages follow the predefined rules.
+- **Documentation**: Ensures the project has a proper documentation, because it forces the project to describe each file and folder.
 
-### Additional validation
+## Additional Validation
 
-You can add additional validation to the commit-msg hook, in other words, you can add additional steps to the validation
-any script validation inside the validations.sh for mac and linux and validation.ps1, like this:
+You can extend the commit-msg hook by adding custom steps. For example, you can include other scripts (tests, linters) in `validations.sh` (for Mac and Linux) or `validation.ps1` (for Windows):
 
 ```bash
 #!/bin/sh
 ./anto validate
 
+# goes to the root of the project
 cd ..
-#Other scripts (tests, linters)
+# Additional scripts (e.g., tests, linters)
 lint
 gradle test
 ```
-### <a name="vskmskfiles"></a>Vsk and Msk files
 
-[link to the documentation]
+## Licence
+Anto is under the [Fair Code Licence](https://faircode.io/).
+
+## Donate - Support Development
+To help Anto growth please donate using github sponsors.

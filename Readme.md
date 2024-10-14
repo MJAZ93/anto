@@ -118,8 +118,9 @@ l 300 < # must have 300 lines max
 
 Before getting started, ensure you have:
 
-- Git installed [git].
+- Git installed.
 - Removed temporary folders and files (e.g., node_modules, build).
+- Remove .anto folder if exists.
 
 ### Fast Installation
 

@@ -1,20 +1,32 @@
 
-# Anto
+# Anto - UNDER DEVELOPMENT - DO NOT USE IT YET
 Simplifying Git Project Organization and Code Quality
 
 ![Project Logo](build/logo.png)
 
 ## Overview
 
-Anto is designed to ease the burden of code reviews, project integration, and maintaining code quality.
+Anto is designed to ease the burden of code reviews, project integration, project documentation and maintaining code quality.
 
 We believe that code reviews should focus on functionality, rather than commit message formats, project structure, or simple file rules.
 
 Anto provides an easy way to validate commit messages, project structure (files and folders), and file content using [VSK/MSK](./vsk_msk_structure.md) files, combined with [Git hooks](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Hooks).
 
-It's a game changer! :-)
+On top of that Anto is the best way to write a technical documentation, because it ensures up-to-date and well written documentation. 
+
+We believe that **It's a game changer!** for all kind of projects, from open source, to big corporation software.
 
 [screenshot-gif]
+
+
+## How It Works
+
+**Validation on commit**: every time that a commit occurs, anto will validate all the rules defined in the .vsk and .msk files under the .anto directory, this is made possible by creating a commit-msg [Git hook](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Hooks).
+  - *Folder Structure Validation*: Ensures the folder structure follows predefined rules.
+  - *File Content Validation*: Validates specific content inside project files.
+  - *Commit Validation*: Ensures commit messages follow the predefined rules.
+  - *Documentation*: Ensures the project has a proper documentation, because it forces the project to describe each file and folder.
+
 
 ## Features
 
@@ -108,11 +120,11 @@ Before getting started, ensure you have:
 
 - Git installed [git].
 - Removed temporary folders and files (e.g., node_modules, build).
-- [Other necessary configurations or tools].
 
 ### Fast Installation
 
 In the root of your .git project run the following command:
+
 #### Mac
 
 ```bash
@@ -150,7 +162,10 @@ emote-windows.ps1"
    ```bash
    ./anto init
    ```
-   Or create the validation file (`structure.vsk`):
+
+##### Or
+
+   create the validation file (`structure.vsk`):
    ```bash
    ./anto create-validation
    ```
@@ -163,15 +178,22 @@ emote-windows.ps1"
    ./anto add-precommit
    ```
 
-### Testing
+### Checkout a project containing Anto
+
+If you are checking out a project that already includes Anto, you will need to run the following command to activate it. This command will only add the commit-msg hook:
+
+```bash
+   ./.anto/anto add-precommit
+```
+
+### Skipping
+
+You can always skip the validation by adding the flag *--no-verify* when committing code.
+
+## Testing
 Just make a commit and **anto** will ensure to make the all validations.
 
-## How It Works
-
-- **Folder Structure Validation**: Ensures the folder structure follows predefined rules.
-- **File Content Validation**: Validates specific content inside project files.
-- **Commit Validation**: Ensures commit messages follow the predefined rules.
-- **Documentation**: Ensures the project has a proper documentation, because it forces the project to describe each file and folder.
+[screenshot-gif]
 
 ## Additional Validation
 
@@ -192,4 +214,4 @@ gradle test
 Anto is under the [Fair Code Licence](https://faircode.io/).
 
 ## Donate - Support Development
-To help Anto growth please donate using github sponsors.
+To help Anto growth please donate using [patreon](https://www.patreon.com/MJAZ) or [KoFi](https://ko-fi.com/afonsomatlhombe).

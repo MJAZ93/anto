@@ -1,8 +1,8 @@
 # PowerShell script for Windows
 
 # Set variables
-$ZIP_FILE = ".anto.zip"
-$EXTRACTED_FOLDER = ".anto"
+$ZIP_FILE = ".windows.zip"
+$EXTRACTED_FOLDER = ".windows"
 
 # Function to exit script on error
 function exit_on_error {

@@ -2,7 +2,7 @@
 # Anto - UNDER DEVELOPMENT - DO NOT USE IT YET
 Simplifying Git Project Organization and Code Quality
 
-![Project Logo](build/logo.png)
+![Project Logo](build/img/logo.png)
 
 ## Overview
 
@@ -16,9 +16,6 @@ On top of that Anto is the best way to write a technical documentation, because 
 
 We believe that **It's a game changer!** for all kind of projects, from open source, to big corporation software.
 
-[screenshot-gif]
-
-
 ## How It Works
 
 **Validation on commit**: every time that a commit occurs, anto will validate all the rules defined in the .vsk and .msk files under the .anto directory, this is made possible by creating a commit-msg [Git hook](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Hooks).
@@ -27,11 +24,13 @@ We believe that **It's a game changer!** for all kind of projects, from open sou
   - *Commit Validation*: Ensures commit messages follow the predefined rules.
   - *Documentation*: Ensures the project has a proper documentation, because it forces the project to describe each file and folder.
 
-
 ## Features
 
-### Commit Validation (`.anto/commit.msk`)
-Commit validation works by defining rules (regex and max lines) in the `.anto/commit.msk` file:
+### Commit Message Validation (`.anto/commit.msk`)
+
+![Project Logo](build/img/CommitMessage.gif)
+
+Commit message validation works by defining rules (regex and max lines) in the `.anto/commit.msk` file:
 
 ```
 /*
@@ -56,6 +55,9 @@ l 300 <
 For more details about `.msk` files, see the [VSK/MSK](#vskmskfiles) section.
 
 ### Project Structure Validation (`.anto/validation.vsk`)
+
+![Project Logo](build/img/FolderStructure.gif)
+
 The project structure validation is defined through rules for files and folders in the `.anto/structure.vsk` file:
 
 ```plaintext
@@ -88,6 +90,9 @@ You can generate the `validation.vsk` file for your project with this command:
 ```
 
 ### File Content Validation (`.anto/{projectName/*/*.vsk}`)
+
+![Project Logo](build/img/FileContent.gif)
+
 File content validation is based on rules defined for specific files within your project. Create directories and files (with the `.msk` extension) that mirror your project structure inside the `.anto` folder.
 
 To automate this, use the following command to create your project folder and file structure:

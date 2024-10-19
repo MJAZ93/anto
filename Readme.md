@@ -181,15 +181,15 @@ emote-windows.ps1"
 
 3. Copy the `.anto` folder to the root of your Git project.
 4. Open the `.anto` folder and run the following commands:
-   5. Initialize Anto with:
-      *mac and linux*:
-      ```bash
-      ./anto init
-      ```
-      *windows*:
-      ```powershell
-      .\anto.ps1 init
-      ```
+5. Initialize Anto with:
+   *mac and linux*:
+   ```bash
+   ./anto init
+   ```
+   *windows*:
+   ```powershell
+   .\anto.ps1 init
+   ```
 
 ##### Or
 
@@ -204,14 +204,14 @@ emote-windows.ps1"
    ```
    
    2. Create the `.msk` files for validating project files:
-   *mac and linux*:
-   ```bash
-   ./anto create-structure
-   ```
-   *windows*:
-   ```powershell
-    .\anto.ps1 create-structure
-   ```
+      *mac and linux*:
+      ```bash
+      ./anto create-structure
+      ```
+      *windows*:
+      ```powershell
+      .\anto.ps1 create-structure
+      ```
 
    3. Add the Git `commit-msg` hook (validation rules live in `commit.msk`):
    *mac and linux*:

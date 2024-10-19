@@ -203,16 +203,16 @@ emote-windows.ps1"
     .\anto.ps1 create-validation
    ```
    
-   2. Create the `.msk` files for validating project files:
+   2. Create the `.msk` files for validating project files:  
 
    *mac and linux*:
       ```bash
       ./anto create-structure
-      ```
+      ```  
    *windows*:
       ```powershell
       .\anto.ps1 create-structure
-      ```
+      ```  
 
    3. Add the Git `commit-msg` hook (validation rules live in `commit.msk`):
    *mac and linux*:

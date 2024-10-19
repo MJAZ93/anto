@@ -4,9 +4,9 @@
 Write-Host "Running anto with 'init' parameter on Windows..."
 
 # Check if the __MACOSX folder exists and remove it if it does
-if (Test-Path "$EXTRACTED_FOLDER\__MACOSX") {
+if (Test-Path "__MACOSX") {
     Write-Host "Removing __MACOSX..."
-    Remove-Item -Recurse -Force "$EXTRACTED_FOLDER\__MACOSX"
+    Remove-Item -Recurse -Force "__MACOSX"
 }
 
 # Navigate to the extracted folder

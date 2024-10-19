@@ -73,4 +73,4 @@ Set-Location ..
 
 # Clean up
 Write-Host "Cleaning up..."
-Remove-Item -Recurse -Force "windows.zip", "install.ps1", "windows", "remote.ps1"
+Remove-Item -Recurse -Force "windows.zip", "install.ps1", "windows", "anto.exe"

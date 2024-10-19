@@ -134,6 +134,7 @@ Before getting started, ensure you have:
 - Git installed.
 - Removed temporary folders and files (e.g., node_modules, build).
 - Remove .anto folder if exists.
+- Make sure to commit all your changes :-).
 
 ### Fast Installation
 

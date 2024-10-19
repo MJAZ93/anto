@@ -10,7 +10,7 @@ VSK (Validation Structure Key) files are used to define the structure of your pr
 ### Structure:
 
 - **Folders**: Defined by square brackets `[ ]`. You can specify either an explicit folder name or use regular expressions (regex) to match multiple folder names.
-  
+
 - **Files**: Defined by curly braces `{ }`. Similarly, you can specify an exact file name or use regex to match multiple file names in a directory.
 
 ### Example:
@@ -22,16 +22,22 @@ VSK (Validation Structure Key) files are used to define the structure of your pr
             [java]
                 [anto]
                     [feature]
-                        {*utils.6}   # Matches files that end with 'utils.6'
-                    [ui]            # Matches 'ui' directory
-                    [utils]         # Matches 'utils' directory
+                        # Matches files that end with 'utils.6', must be 1 to 5 files
+                        {*utils.6} 1..5
+                    # Matches 'ui' directory   
+                    [ui]   
+                    # Matches 'utils' directory         
+                    [utils]
         [test]
-            [feature]
+            # Must have maximum 5 features
+            [feature-*] < 5
                 {*utils.6}
     [build]
-        [**]   # Matches all files and folders recursively (useful for ignoring entire directories)
+        # Matches all files and folders recursively (useful for ignoring entire directories)
+        [**]   
 [commit]
-    {commit.*}  # Matches files like 'commit.log', 'commit.txt', etc.
+    # Matches files like 'commit.log', 'commit.txt', etc.
+    {commit.*} 
 ```
 
 ### Rules:
@@ -39,6 +45,26 @@ VSK (Validation Structure Key) files are used to define the structure of your pr
 1. **Folder Definitions**: You define folders using `[folder_name]`, and any folders inside are indented with a tab.
 2. **File Definitions**: You define files using `{file_name}` and can use regex to match file patterns. For instance, `{commit.*}` matches files like `commit.log`, `commit.txt`, etc.
 3. **Wildcard Rules**: Use `**` to match all files and subdirectories under a directory.
+
+### Maximum, Minimum, and Exact File/Folder Rules:
+
+You can define rules for the number of files/folders in a directory:
+- `< X` - Minimum number of files/folders.
+- `> X` - Maximum number of files/folders.
+- `= X` - Exact number of files/folders.
+- `A..B` - Number of files/folders should be in the range A to B.
+
+### Example:
+
+```plaintext
+[resources]
+    {*.json} < 5    # There must be at least 5 JSON files.
+    {*.txt} > 3     # There must be no more than 3 TXT files.
+    {*.md} = 1      # There must be exactly 1 Markdown file.
+    {*.xml} 2..4    # There must be between 2 and 4 XML files.
+    
+And for folders too.
+```
 
 This structure ensures that your project always adheres to a predefined folder layout, with required files present in the correct locations.
 

@@ -24,6 +24,9 @@ We believe that **It's a game changer!** for all kind of projects, from open sou
   - *Commit Validation*: Ensures commit messages follow the predefined rules.
   - *Documentation*: Ensures the project has a proper documentation, because it forces the project to describe each file and folder.
 
+## Donate - Support Development
+To help Anto growth please donate using [patreon](https://www.patreon.com/MJAZ) or [KoFi](https://ko-fi.com/afonsomatlhombe).
+
 ## Features
 
 ### Commit Message Validation (`.anto/commit.msk`)
@@ -67,20 +70,22 @@ The project structure validation is defined through rules for files and folders 
             [java]
                 [anto]
                     [feature]
-                        {*utils.6} # Matches files that end with 'utils.6'
-                        [grand]
-                    [ui] # Matches 'ui' directory
-                    [utils] # Matches 'utils' directory
+                        # Matches files that end with 'utils.6', must be 1 to 5 files
+                        {*utils.6} 1..5
+                    # Matches 'ui' directory   
+                    [ui]   
+                    # Matches 'utils' directory         
+                    [utils]
         [test]
-            [feature]
+            # Must have maximum 5 features
+            [feature-*] < 5
                 {*utils.6}
-                [grand]
-                [ui]
-                [utils]
     [build]
-        [**] # Matches all files and folders recursively (useful for ignoring entire directories)
+        # Matches all files and folders recursively (useful for ignoring entire directories)
+        [**]   
 [commit]
-    {commit.*} # Matches files like 'commit.log', 'commit.txt', etc.
+    # Matches files like 'commit.log', 'commit.txt', etc.
+    {commit.*} 
 ```
 
 You can generate the `validation.vsk` file for your project with this command:
@@ -110,11 +115,14 @@ The MainActivity.kt file should only contain navigation code and must not includ
 The file should be a maximum of 300 lines to prevent overly large classes.
 */
 
-l 300 < # must have 300 lines max
+# must have 300 lines max
+l 300 < 
 
-+ *Activity # the class name must contain Activity
+# the class name must contain Activity
++ *Activity 
 
-- @Composable* # the activity shouldnot contain any composable
+# the activity shouldnot contain any composable
+- @Composable* 
 ```
 
 ## Installation
@@ -219,5 +227,3 @@ gradle test
 ## Licence
 Anto is under the [Fair Code Licence](https://faircode.io/).
 
-## Donate - Support Development
-To help Anto growth please donate using [patreon](https://www.patreon.com/MJAZ) or [KoFi](https://ko-fi.com/afonsomatlhombe).

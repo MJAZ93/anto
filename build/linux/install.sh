@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Remove the __MACOSX folder if it exists
+if [ -d "$EXTRACTED_FOLDER/__MACOSX" ]; then
+    echo "Removing __MACOSX..."
+    rm -rf "$EXTRACTED_FOLDER/__MACOSX"
+fi
+
 # Navigate to the extracted folder
 cd .anto || { echo "Failed to enter directory"; exit 1; }
 

@@ -3,15 +3,18 @@
 # Output message
 Write-Host "Running anto with 'init' parameter on Windows..."
 
-# Make the 'anto' file executable (no need for chmod in Windows)
-# Run the 'anto' executable with the 'init' parameter
-if (Test-Path ".\anto.exe") {
-    Write-Host "Executing anto.exe with 'init' parameter..."
-    .\anto.exe init
-} else {
-    Write-Host "anto.exe not found, ensure it's in the current directory."
-    exit 1
+# Check if the __MACOSX folder exists and remove it if it does
+if (Test-Path "$EXTRACTED_FOLDER\__MACOSX") {
+    Write-Host "Removing __MACOSX..."
+    Remove-Item -Recurse -Force "$EXTRACTED_FOLDER\__MACOSX"
 }
 
-# Output completion message
+# Navigate to the extracted folder
+Set-Location ".anto" -ErrorAction Stop
+
+# Windows - Run the 'anto' binary with 'init' parameter
+Write-Host "Running anto with 'init' parameter on Windows..."
+# No need to set execute permission on Windows, just run the executable
+Start-Process -NoNewWindow -Wait "./anto.exe" "init"
+
 Write-Host "Installation complete!"

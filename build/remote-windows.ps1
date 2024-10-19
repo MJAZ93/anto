@@ -41,8 +41,11 @@ try {
 # Move the contents to the current folder
 Write-Host "Moving files to the root folder..."
 $sourceFolder = Join-Path $EXTRACTED_FOLDER "windows"
-Get-ChildItem $sourceFolder -Force | Move-Item -Destination "." -ErrorAction Stop
-if (!$?) { exit_on_error "Failed to move files" }
+try {
+    Get-ChildItem $sourceFolder -Force | Move-Item -Destination "."
+} catch {
+    exit_on_error "Failed to move files: $($_.Exception.Message)"
+}
 
 # Example command execution
 Write-Host "Running installation commands..."

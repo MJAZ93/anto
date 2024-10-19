@@ -44,3 +44,9 @@ if (Test-Path $antoExe) {
 }
 
 Write-Host "Installation complete!"
+
+# Go back and clean up the zip file
+Write-Host "Cleaning up..."
+
+# Remove files and folders
+Remove-Item -Recurse -Force "mac.zip", "install.sh", "mac", "remote.sh", "__MACOSX"

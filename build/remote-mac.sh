@@ -42,5 +42,3 @@ chmod +x install.sh || exit_on_error "Failed to make install.sh executable"
 # Go back and clean up the zip file
 echo "Cleaning up..."
 rm -rf mac.zip install.sh mac remote.sh __MACOSX
-
-# remove files if success

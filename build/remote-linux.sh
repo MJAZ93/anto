@@ -37,9 +37,6 @@ echo "Running installation commands..."
 chmod +x install.sh || exit_on_error "Failed to make install.sh executable"
 ./install.sh || exit_on_error "Failed to run install.sh"
 
-# Go back and clean up the zip file
-cd ..
+# Clean up
 echo "Cleaning up..."
 rm -rf linux.zip install.sh linux remote.sh
-
-# remove files if success

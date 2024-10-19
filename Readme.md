@@ -159,6 +159,8 @@ emote-windows.ps1"; & "$env:TEMP
 emote-windows.ps1"
 ```
 
+#### Or
+
 ### [Step by Step installation](./step-by-step-installation.md)
 
 ### Checkout a project containing Anto
@@ -181,8 +183,6 @@ You can always skip the validation by adding the flag *--no-verify* when committ
 
 ## Testing
 Just make a commit and **anto** will ensure to make the all validations.
-
-[screenshot-gif]
 
 ## Additional Validation
 

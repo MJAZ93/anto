@@ -1,5 +1,5 @@
 
-# Anto - UNDER DEVELOPMENT - DO NOT USE IT YET
+# Anto
 Simplifying Git Project Organization and Code Quality
 
 ![Project Logo](build/img/logo.png)
@@ -153,6 +153,9 @@ In the root of your .git project run the following command:
 ```
 
 #### Windows
+
+For windows you might need to run as administrator, if you can't run as administrator, run the command above and continue in the
+Step-By-Step installation (from the step **5. Initialize Anto with:**):
 
 ```bash
 powershell -Command "& { (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/MJAZ93/anto/main/build/remote-windows.ps1') | Invoke-Expression }"

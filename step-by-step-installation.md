@@ -13,8 +13,8 @@
 ```
 
 *windows*:
-```powershell
-   .\install.ps1
+```bash
+   .\install.exe
 ```
 
 #### Or
@@ -27,8 +27,8 @@
    ./anto init
    ```
    *windows*:
-   ```powershell
-   .\anto.ps1 init
+   ```bash
+   .\anto.exe init
    ```
 
 ##### Or
@@ -39,8 +39,8 @@
    ./anto create-validation
    ```
 *windows*:
-   ```powershell
-    .\anto.ps1 create-validation
+   ```bash
+    .\anto.exe create-validation
    ```
 
 2. Create the `.msk` files for validating project files:
@@ -51,8 +51,8 @@
    ```
 
 *windows*:
-   ```powershell
-   .\anto.ps1 create-structure
+   ```bash
+   .\anto.exe create-structure
    ```  
 
 3. Add the Git `commit-msg` hook (validation rules live in `commit.msk`):  
@@ -61,6 +61,6 @@
    ./anto add-precommit
    ```
 *windows*:
-   ```powershell
-    .\anto.ps1 add-precommit
+   ```bash
+    .\anto.exe add-precommit
    ```  

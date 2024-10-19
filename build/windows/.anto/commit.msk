@@ -1,24 +1,24 @@
-#Desciption of the commit, this will show when a the validation fails
 /*
+CHANGE THE COMMIT RULES INSIDE: .../project/.anto/commit.msk
+
 Commit should follow the Conventional Commits structure:
 
-[optional scope]: <description>
+<type>[optional scope]: <description>
 
 Types allowed:
 - feat: A new feature
 - fix: A bug fix
+...
 
-Commit message should not contain the word commit.
+Commit message should not contain the word "commit"
 
 Must have a maximum of 300 characters.
 */
 
-#maximum number of words
 l 300 <
 
-# Regex, at least one must match
 + feat:*
 + fix:*
 
-# Regex, no one must match
+# Commits must never contain the word "commit"
 - commit*

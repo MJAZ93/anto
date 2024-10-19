@@ -154,9 +154,7 @@ In the root of your .git project run the following command:
 #### Windows
 
 ```bash
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/MJAZ93/anto/main/build/remote-windows.ps1" -OutFile "$env:TEMP
-emote-windows.ps1"; & "$env:TEMP
-emote-windows.ps1"
+powershell -Command "& { (New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/MJAZ93/anto/main/build/remote-windows.ps1') | Invoke-Expression }"
 ```
 
 #### Or

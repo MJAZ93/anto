@@ -205,11 +205,11 @@ emote-windows.ps1"
    
    2. Create the `.msk` files for validating project files:  
 
-   *mac and linux*:
+   *mac and linux*:  
       ```bash
       ./anto create-structure
       ```  
-   *windows*:
+   *windows*:  
       ```powershell
       .\anto.ps1 create-structure
       ```  

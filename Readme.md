@@ -206,30 +206,37 @@ emote-windows.ps1"
    2. Create the `.msk` files for validating project files:  
 
    *mac and linux*:  
-      ```bash
-      ./anto create-structure
-      ```  
-   *windows*:  
-      ```powershell
-      .\anto.ps1 create-structure
-      ```  
+   ```bash
+   ./anto create-structure
+   ```
 
-   3. Add the Git `commit-msg` hook (validation rules live in `commit.msk`):
-   *mac and linux*:
+   *windows*:  
+   ```powershell
+   .\anto.ps1 create-structure
+   ```  
+
+   3. Add the Git `commit-msg` hook (validation rules live in `commit.msk`):  
+   *mac and linux*:  
    ```bash
    ./anto add-precommit
    ```
-   *windows*:
+   *windows*:  
    ```powershell
     .\anto.ps1 add-precommit
-   ```
+   ```  
 
 ### Checkout a project containing Anto
 
 If you are checking out a project that already includes Anto, you will need to run the following command to activate it. This command will only add the commit-msg hook:
 
+*mac and linux*:  
 ```bash
    ./.anto/anto add-precommit
+```
+
+*windows (navigate to .anto folder and)*:
+```powershell
+   .\anto.ps1 add-precommit
 ```
 
 ### Skipping

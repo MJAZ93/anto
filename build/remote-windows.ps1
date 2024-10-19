@@ -17,7 +17,7 @@ function exit_on_error {
 
 # Download the GitHub zip
 Write-Host "Downloading repository zip..."
-Invoke-WebRequest -Uri $ZIP_URL -OutFile $ZIP_FILE -ErrorAction Stop
+Invoke-WebRequest -Uri $ZIP_URL -OutFile $ZIP_FILE
 if (!$?) { exit_on_error "Download failed" }
 
 # Check if the zip file is valid
@@ -30,9 +30,13 @@ Write-Host "Extracting zip..."
 if (-not (Test-Path $EXTRACTED_FOLDER)) {
     New-Item -ItemType Directory -Force -Path $EXTRACTED_FOLDER
 }
-Add-Type -AssemblyName 'System.IO.Compression.FileSystem'
-[System.IO.Compression.ZipFile]::ExtractToDirectory($ZIP_FILE, $EXTRACTED_FOLDER) -ErrorAction Stop
-if (!$?) { exit_on_error "Unzip failed" }
+
+try {
+    Add-Type -AssemblyName 'System.IO.Compression.FileSystem'
+    [System.IO.Compression.ZipFile]::ExtractToDirectory($ZIP_FILE, $EXTRACTED_FOLDER)
+} catch {
+    exit_on_error "Unzip failed: $($_.Exception.Message)"
+}
 
 # Move the contents to the current folder
 Write-Host "Moving files to the root folder..."
@@ -44,7 +48,7 @@ if (!$?) { exit_on_error "Failed to move files" }
 Write-Host "Running installation commands..."
 $installScript = "./install.ps1"
 if (-not (Test-Path $installScript)) {
-exit_on_error "install.ps1 script not found"
+    exit_on_error "install.ps1 script not found"
 }
 & $installScript
 if (!$?) { exit_on_error "Failed to run install.ps1" }

@@ -179,13 +179,13 @@ func checksFileRegex(fileRoot string, filename string, regex string) error {
 
 		fileByte, err := os.ReadFile(actualFile)
 		if err != nil {
-			return errors.New("Error reading file " + actualFile + ", err: " + err.Error())
+			return errors.New("error reading file " + actualFile + ", err: " + err.Error())
 		}
 		fileContent := string(fileByte)
 
 		cm, err := utils.ParseMsk(mksFile)
 		if err != nil {
-			return errors.New("Error parsing " + mksFile + ", err: " + err.Error())
+			return errors.New("error parsing " + mksFile + ", err: " + err.Error())
 		}
 
 		lines := strings.Split(fileContent, "\n")

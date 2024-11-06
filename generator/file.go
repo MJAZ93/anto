@@ -15,24 +15,24 @@ func GenerateFolderAndFileStruct(filename string, basePath string) error {
 	// Parse the .vsk file
 	rootFolder, err := parser.ParseVSKFile(filename)
 	if err != nil {
-		return errors.New("Error parsing .vsk file: " + err.Error())
+		return errors.New("error parsing .vsk file: " + err.Error())
 	}
 
 	// Read default content from file-example.msk
 	defaultContent, err := os.ReadFile("file-model.msk")
 	if err != nil {
-		return errors.New("Error reading file-model.msk file: " + err.Error())
+		return errors.New("error reading file-model.msk file: " + err.Error())
 	}
 
 	// Ensure basePath exists
 	err = os.MkdirAll(basePath, os.ModePerm)
 	if err != nil {
-		return errors.New("Error creating base path: " + err.Error())
+		return errors.New("error creating base path: " + err.Error())
 	}
 
 	err = createStructure(rootFolder, basePath, string(defaultContent))
 	if err != nil {
-		return errors.New("Error creating structure: " + err.Error())
+		return errors.New("error creating structure: " + err.Error())
 	}
 
 	fmt.Println("Folder and file structure created successfully under", basePath)

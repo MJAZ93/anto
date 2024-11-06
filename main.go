@@ -22,7 +22,7 @@ func main() {
 
 	err := processRequest(app)
 	if err != nil {
-		fmt.Println("err: ", err.Error())
+		fmt.Println("ANTO VALIDATION: ", err.Error())
 		os.Exit(2)
 	}
 }

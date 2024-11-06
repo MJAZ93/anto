@@ -16,7 +16,7 @@ func ParseVSKFile(filename string) (model.FolderRule, error) {
 	// Open the file
 	file, err := os.Open(filename)
 	if err != nil {
-		return model.FolderRule{}, errors.New("Error opening file " + err.Error())
+		return model.FolderRule{}, errors.New("error opening file " + err.Error())
 	}
 	defer file.Close()
 
@@ -91,7 +91,7 @@ func ParseVSKFile(filename string) (model.FolderRule, error) {
 	}
 
 	if err := scanner.Err(); err != nil {
-		return model.FolderRule{}, errors.New("Error reading file " + err.Error())
+		return model.FolderRule{}, errors.New("error reading file " + err.Error())
 	}
 
 	// Output the root FolderRule as JSON
@@ -137,6 +137,7 @@ func parsePatternAndCounts(line string, openChar, closeChar rune) (pattern strin
 	// Check for counts after the closing bracket
 	rest := strings.TrimSpace(line[end+1:])
 	if rest != "" {
+		// Check for exact count (e.g., "=5")
 		if strings.HasPrefix(rest, "=") {
 			countStr := rest[1:]
 			count, err := strconv.Atoi(countStr)
@@ -144,15 +145,37 @@ func parsePatternAndCounts(line string, openChar, closeChar rune) (pattern strin
 				minCount = count
 				maxCount = count
 			}
-		} else if strings.HasPrefix(rest, ">") {
+		} else if strings.HasPrefix(rest, ">") { // Minimum count (e.g., ">5")
 			countStr := rest[1:]
 			count, err := strconv.Atoi(countStr)
 			if err == nil {
 				minCount = count + 1
 				maxCount = math.MaxInt32
 			}
+		} else if strings.HasPrefix(rest, "<") { // Maximum count (e.g., "<10")
+			countStr := rest[1:]
+			count, err := strconv.Atoi(countStr)
+			if err == nil {
+				minCount = 0
+				maxCount = count - 1
+			}
+		} else if strings.Contains(rest, "..") { // Range (e.g., "2..10")
+			countRange := strings.Split(rest, "..")
+			if len(countRange) == 2 {
+				minStr := strings.TrimSpace(countRange[0])
+				maxStr := strings.TrimSpace(countRange[1])
+
+				min, err1 := strconv.Atoi(minStr)
+				max, err2 := strconv.Atoi(maxStr)
+
+				if err1 == nil {
+					minCount = min
+				}
+				if err2 == nil {
+					maxCount = max
+				}
+			}
 		}
-		// You can add more parsing for other count expressions if needed
 	}
 
 	return

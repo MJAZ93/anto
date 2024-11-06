@@ -13,7 +13,7 @@ func GenerateStructure(rootDir string) error {
 	// Open the output file
 	outFile, err := os.Create("structure.vsk")
 	if err != nil {
-		return errors.New("Error creating output file:" + err.Error())
+		return errors.New("error creating output file:" + err.Error())
 	}
 	defer outFile.Close()
 
@@ -50,7 +50,7 @@ func buildStructure(rootDir string) (*Node, error) {
 func walkDir(node *Node) error {
 	entries, err := os.ReadDir(node.Name)
 	if err != nil {
-		return errors.New("Error reading directory: " + err.Error())
+		return errors.New("error reading directory: " + err.Error())
 	}
 
 	for _, entry := range entries {

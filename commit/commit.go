@@ -17,7 +17,7 @@ import (
 func ValidateCommitMessage(message string, commitFile string) error {
 	cm, err := utils.ParseMsk(commitFile)
 	if err != nil {
-		return errors.New("Error parsing commit.msk, err: " + err.Error())
+		return errors.New("error parsing commit.msk, err: " + err.Error())
 	}
 
 	if len(message) > cm.MaxLines {
@@ -64,7 +64,7 @@ func ValidateCommits() error {
 	err = ValidateCommitMessage(commitMessage, "commit.msk")
 	if err != nil {
 		//ClearCommitMessage()
-		return errors.New(err.Error())
+		return errors.New("ANTO: " + err.Error())
 	}
 
 	return nil

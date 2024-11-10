@@ -6,32 +6,13 @@ Simplifying Git Project Organization and Code Quality
 
 ## Overview
 
-Anto is designed to ease the burden of code reviews, project integration, project documentation and maintaining code quality.
-
-We believe that code reviews should focus on functionality, rather than commit message formats, project structure, or simple file rules.
-
-Anto provides an easy way to validate commit messages, project structure (files and folders), and file content using [VSK/MSK](./vsk_msk_structure.md) files, combined with [Git hooks](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Hooks).
-
-On top of that Anto is the best way to write a technical documentation, because it ensures up-to-date and well written documentation. 
-
-We believe that **It's a game changer!** for all kind of projects, from open source, to big corporation software.
-
-## How It Works
-
-**Validation on commit**: every time that a commit occurs, anto will validate all the rules defined in the .vsk and .msk files under the .anto directory, this is made possible by creating a commit-msg [Git hook](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Hooks).
-  - *Folder Structure Validation*: Ensures the folder structure follows predefined rules.
-  - *File Content Validation*: Validates specific content inside project files.
-  - *Commit Validation*: Ensures commit messages follow the predefined rules.
-  - *Documentation*: Ensures the project has a proper documentation, because it forces the project to describe each file and folder.
-
-## Donate - Support Development
-To help Anto growth please donate using [patreon](https://www.patreon.com/MJAZ) or [KoFi](https://ko-fi.com/afonsomatlhombe).
+Anto simplifies code reviews, project integration, documentation, and code quality by automating checks for commit messages, project structure, and file content with [VSK/MSK](./vsk_msk_structure.md) files and [Git hooks](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Hooks). It also keeps documentation accurate and up-to-date, making it a valuable tool for projects of any scale, from open source to corporate software.
 
 ## Features
 
 ### Commit Message Validation (`.anto/commit.msk`)
 
-![Project Logo](build/img/CommitMessage.gif)
+![Commit message gif](build/img/CommitMessage.gif)
 
 Commit message validation works by defining rules (regex and max lines) in the `.anto/commit.msk` file:
 
@@ -59,7 +40,7 @@ For more details about `.msk` files, see the [VSK/MSK](#vskmskfiles) section.
 
 ### Project Structure Validation (`.anto/validation.vsk`)
 
-![Project Logo](build/img/FolderStructure.gif)
+![Project structure validation gif](build/img/FolderStructure.gif)
 
 The project structure validation is defined through rules for files and folders in the `.anto/structure.vsk` file:
 
@@ -96,7 +77,7 @@ You can generate the `validation.vsk` file for your project with this command:
 
 ### File Content Validation (`.anto/{projectName/*/*.vsk}`)
 
-![Project Logo](build/img/FileContent.gif)
+![File content validation gif](build/img/FileContent.gif)
 
 File content validation is based on rules defined for specific files within your project. Create directories and files (with the `.msk` extension) that mirror your project structure inside the `.anto` folder.
 
@@ -204,3 +185,12 @@ gradle test
 ## Licence
 Anto is under the [Fair Code Licence](https://faircode.io/).
 
+## Donate - Support Development
+To help Anto growth please donate using [patreon](https://www.patreon.com/MJAZ) or [KoFi](https://ko-fi.com/afonsomatlhombe).
+
+## Anto-UI
+Anto UI is a user-friendly interface that consolidates Anto functionalities into one convenient platform. Its intuitive design makes managing tasks simple and efficient.
+
+![File content validation gif](build/img/AntoUi.gif)
+
+You can get access to anto-ui by buying (donating) a 49 USD in [Patreon](https://www.patreon.com/MJAZ/shop/anto-ui-644622?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=productshare_creator&utm_content=join_link) or [KoFi](https://ko-fi.com/s/0809d20f68).

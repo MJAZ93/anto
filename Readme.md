@@ -75,7 +75,7 @@ You can generate the `validation.vsk` file for your project with this command:
 .anto create-validation
 ```
 
-### File Content Validation (`.anto/{projectName/*/*.vsk}`)
+### File Content Validation (`.anto/{projectName/*/*.msk}`)
 
 ![File content validation gif](build/img/FileContent.gif)
 

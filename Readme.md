@@ -135,7 +135,7 @@ In the root of your .git project run the following command:
 
 #### Windows
 
-For windows you might need to run as administrator, if you can't run as administrator, run the command above and continue in the
+For windows you might need to run as administrator, if you can't run as administrator, run the command bellow and continue in the
 Step-By-Step installation (from the step **5. Initialize Anto with:**):
 
 ```bash
@@ -165,7 +165,7 @@ If you are checking out a project that already includes Anto, you will need to r
 You can always skip the validation by adding the flag *--no-verify* when committing code.
 
 ## Testing
-Just make a commit and **anto** will ensure to make the all validations.
+Just make a commit and **anto** will ensure to make all validations.
 
 ## Additional Validation
 

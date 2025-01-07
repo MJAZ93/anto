@@ -192,5 +192,3 @@ To help Anto growth please donate using [patreon](https://www.patreon.com/MJAZ) 
 Anto UI is a user-friendly interface that consolidates Anto functionalities into one convenient platform. Its intuitive design makes managing tasks simple and efficient.
 
 ![File content validation gif](build/img/AntoUi.gif)
-
-You can get access to anto-ui by buying (donating) 49 USD in [Patreon](https://www.patreon.com/MJAZ/shop/anto-ui-644622?utm_medium=clipboard_copy&utm_source=copyLink&utm_campaign=productshare_creator&utm_content=join_link) or [KoFi](https://ko-fi.com/s/0809d20f68).
